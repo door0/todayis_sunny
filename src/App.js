@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 
+
+const getServerData = () => {
+  fetch('http://localhost:4000/api', {
+    method:'GET',
+    headers:{'Content-Type' : 'application/json'}
+  })
+  .then(res => {
+    console.log(res);
+    console.log(typeof(res));
+    return res.json();
+  })
+  .then(res => console.log(res))
+}
+
+
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={getServerData}>btn</button>
     </div>
   );
 }
