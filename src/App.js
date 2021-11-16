@@ -1,4 +1,5 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 
@@ -17,6 +18,12 @@ const getServerData = () => {
 
 
 function App() {
+
+  useEffect(() => {
+    axios.get('/api/user')
+    .then(res => console.log(res))
+    .catch()
+  })
 
   return (
     <div className="App">
